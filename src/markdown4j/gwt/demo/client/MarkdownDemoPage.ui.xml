@@ -1,0 +1,39 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+	body {
+		font-family: 'Noto Sans', sans-serif;
+	}
+	
+	.pad {
+		margin-bottom: 10px;
+	}
+	</ui:style>
+	<g:HTMLPanel>
+		<div class="container">
+			<h1>
+				Markdown4j-gwt
+				<small>Demo</small>
+			</h1>
+			<p>This simple demo showing markdown processing with markdown4j gwt.</p>
+			<p>
+				The library source is located at
+				<a href="https://github.com/ReflectionIO/markdown4j-gwt">ReflectionIO/markdown4j-gwt</a>
+				.
+			</p>
+			<p>
+				Demo markdown was obtained from
+				<a href="http://jaspervdj.be/lorem-markdownum/" target="_blank">http://jaspervdj.be/lorem-markdownum/</a>
+				.
+			</p>
+			<div class="row">
+				<div class="col-sm-6">
+					<g:TextArea ui:field="markdown" visibleLines="15" styleName="col-sm-12 {style.pad}" />
+					<g:InlineHyperlink ui:field="clear" styleName="btn btn-primary btn-lg">Clear</g:InlineHyperlink>
+					<g:InlineHyperlink ui:field="another" styleName="btn btn-default btn-lg">Another</g:InlineHyperlink>
+				</div>
+				<g:HTMLPanel ui:field="converted" styleName="col-sm-6" />
+			</div>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 
