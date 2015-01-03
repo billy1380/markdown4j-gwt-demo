@@ -15,7 +15,6 @@
 <!--   <inherits name='com.google.gwt.user.theme.clean.Clean'/> -->
 
   <!-- Other module inherits                                      -->
-  <inherits name="com.github.rjeschke.TxtMark" />
   <inherits name="org.Markdown4j" />
 
   <!-- Specify the app entry point class.                         -->

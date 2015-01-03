@@ -8,6 +8,11 @@
 	.pad {
 		margin-bottom: 10px;
 	}
+	
+	.overflow {
+		overflow-y: auto;
+		height: 300px;
+	}
 	</ui:style>
 	<g:HTMLPanel>
 		<div class="container">
@@ -26,13 +31,41 @@
 				<a href="http://jaspervdj.be/lorem-markdownum/" target="_blank">http://jaspervdj.be/lorem-markdownum/</a>
 				.
 			</p>
+			<h2>Markdown editor</h2>
+			<p>This editor demonstrates live updating markdown, where the async plugins have not been registered. They can be registered but they mostly rely on server
+				calls to third party services, so it would be wastefull to make the calls on keypress.</p>
+			<p>
+				Emoji is/are supported but I have not created any css to match their position e.g.
+				<code>h2 .emoji {}</code>
+				or
+				<code> .emoji {}</code>
+				etc. so they look a little out of place.
+			</p>
 			<div class="row">
 				<div class="col-sm-6">
 					<g:TextArea ui:field="markdown" visibleLines="15" styleName="col-sm-12 {style.pad}" />
 					<g:InlineHyperlink ui:field="clear" styleName="btn btn-primary btn-lg">Clear</g:InlineHyperlink>
 					<g:InlineHyperlink ui:field="another" styleName="btn btn-default btn-lg">Another</g:InlineHyperlink>
 				</div>
-				<g:HTMLPanel ui:field="converted" styleName="col-sm-6" />
+				<g:HTMLPanel ui:field="converted" styleName="col-sm-6 {style.overflow}" />
+			</div>
+
+			<h2>Async Markdown editor</h2>
+			<p>
+				This editor demonstrates the async plugins. Currently
+				<a href="http://www.yuml.me" rel="nofollow">yUML</a>
+				(not really an async plugin),
+				<a href="http://www.websequencediagrams.com/" target="_blank">websequencediagrams</a>
+				and import are supported and users can add their own. The original author seems
+				to have had other plans for the import plugin markdown syntax, but this works
+				for now.
+			</p>
+			<div class="row">
+				<div class="col-sm-6">
+					<g:TextArea ui:field="asyncMarkdown" visibleLines="15" styleName="col-sm-12 {style.pad}" />
+					<g:InlineHyperlink ui:field="process" styleName="btn btn-primary btn-lg">Process</g:InlineHyperlink>
+				</div>
+				<g:HTMLPanel ui:field="asyncConverted" styleName="col-sm-6 {style.overflow}" />
 			</div>
 		</div>
 	</g:HTMLPanel>
