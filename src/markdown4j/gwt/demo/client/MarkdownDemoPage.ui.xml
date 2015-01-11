@@ -42,7 +42,7 @@
 		</p>
 		<div class="row">
 			<div class="col-sm-6">
-				<g:TextArea ui:field="markdown" visibleLines="15" styleName="col-sm-12 {style.pad}" />
+				<g:TextArea ui:field="markdown" visibleLines="15" styleName="col-xs-12 {style.pad}" />
 				<g:InlineHyperlink ui:field="clear" styleName="btn btn-primary btn-lg">Clear</g:InlineHyperlink>
 				<g:InlineHyperlink ui:field="another" styleName="btn btn-default btn-lg">Another</g:InlineHyperlink>
 			</div>
@@ -61,7 +61,7 @@
 		</p>
 		<div class="row">
 			<div class="col-sm-6">
-				<g:TextArea ui:field="asyncMarkdown" visibleLines="15" styleName="col-sm-12 {style.pad}" />
+				<g:TextArea ui:field="asyncMarkdown" visibleLines="15" styleName="col-xs-12 {style.pad}" />
 				<g:InlineHyperlink ui:field="process" styleName="btn btn-primary btn-lg">Process</g:InlineHyperlink>
 			</div>
 			<g:HTMLPanel ui:field="asyncConverted" styleName="col-sm-6 {style.overflow}" />
