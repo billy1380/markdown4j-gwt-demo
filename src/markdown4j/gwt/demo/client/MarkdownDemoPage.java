@@ -7,10 +7,8 @@
 //
 package markdown4j.gwt.demo.client;
 
-import java.io.IOException;
-
-import org.markdown4j.Markdown4jProcessor;
-import org.markdown4j.event.PluginContentReadyEventHandler;
+import org.markdown4j.client.GwtMarkdownProcessor;
+import org.markdown4j.client.event.PluginContentReadyEventHandler;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Element;
@@ -46,8 +44,8 @@ public class MarkdownDemoPage extends Composite implements PluginContentReadyEve
 	@UiField HTMLPanel asyncConverted;
 	@UiField InlineHyperlink process;
 
-	Markdown4jProcessor processor = new Markdown4jProcessor();
-	Markdown4jProcessor asyncProcessor = new Markdown4jProcessor().registerAsyncPlugins();
+	GwtMarkdownProcessor processor = new GwtMarkdownProcessor();
+	GwtMarkdownProcessor asyncProcessor = new GwtMarkdownProcessor().registerAsyncPlugins();
 	private HandlerRegistration registration;
 
 	public MarkdownDemoPage() {
@@ -145,27 +143,11 @@ public class MarkdownDemoPage extends Composite implements PluginContentReadyEve
 
 	@UiHandler("process")
 	void onProcessClicked(ClickEvent ce) {
-		String processed = "";
-
-		try {
-			processed = asyncProcessor.process(asyncMarkdown.getText());
-		} catch (IOException e) {
-			GWT.log("Error processing", e);
-		}
-
-		asyncConverted.getElement().setInnerHTML(processed);
+		asyncConverted.getElement().setInnerHTML(asyncProcessor.process(asyncMarkdown.getText()));
 	}
 
 	private void process() {
 		HTMLPanel panel;
-		String processed = "";
-
-		try {
-			processed = processor.process(markdown.getText());
-		} catch (IOException e) {
-			GWT.log("Error processing", e);
-		}
-
 		int count = converted.getWidgetCount();
 
 		if (count == 0) {
@@ -174,7 +156,7 @@ public class MarkdownDemoPage extends Composite implements PluginContentReadyEve
 			panel = (HTMLPanel) converted.getWidget(count - 1);
 		}
 
-		panel.getElement().setInnerHTML(processed);
+		panel.getElement().setInnerHTML(processor.process(markdown.getText()));
 	}
 
 	/*
