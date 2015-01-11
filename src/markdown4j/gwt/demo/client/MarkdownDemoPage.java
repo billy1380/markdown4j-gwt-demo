@@ -7,7 +7,7 @@
 //
 package markdown4j.gwt.demo.client;
 
-import org.markdown4j.client.GwtMarkdownProcessor;
+import org.markdown4j.client.MarkdownProcessor;
 import org.markdown4j.client.event.PluginContentReadyEventHandler;
 
 import com.google.gwt.core.client.GWT;
@@ -44,8 +44,12 @@ public class MarkdownDemoPage extends Composite implements PluginContentReadyEve
 	@UiField HTMLPanel asyncConverted;
 	@UiField InlineHyperlink process;
 
-	GwtMarkdownProcessor processor = new GwtMarkdownProcessor();
-	GwtMarkdownProcessor asyncProcessor = new GwtMarkdownProcessor().registerAsyncPlugins();
+	// removes async plugin registration
+	MarkdownProcessor processor = new MarkdownProcessor() {
+		protected void registerPlugins() {};
+	};
+
+	MarkdownProcessor asyncProcessor = new MarkdownProcessor();
 	private HandlerRegistration registration;
 
 	public MarkdownDemoPage() {
