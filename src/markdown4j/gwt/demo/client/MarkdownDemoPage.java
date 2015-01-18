@@ -7,6 +7,7 @@
 //
 package markdown4j.gwt.demo.client;
 
+import org.markdown4j.client.Markdown;
 import org.markdown4j.client.MarkdownProcessor;
 import org.markdown4j.client.event.PluginContentReadyEventHandler;
 
@@ -15,6 +16,7 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -43,6 +45,16 @@ public class MarkdownDemoPage extends Composite implements PluginContentReadyEve
 	@UiField TextArea asyncMarkdown;
 	@UiField HTMLPanel asyncConverted;
 	@UiField InlineHyperlink process;
+
+	interface MarkdownSnippets extends ClientBundle {
+		static final MarkdownSnippets INSTANCE = GWT.create(MarkdownSnippets.class);
+
+		@Source("res/generated.md")
+		Markdown generated();
+		
+		@Source("res/emoji.md")
+		Markdown emoji();
+	}
 
 	// removes async plugin registration
 	MarkdownProcessor processor = new MarkdownProcessor() {
