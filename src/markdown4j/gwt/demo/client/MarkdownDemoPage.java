@@ -27,6 +27,9 @@ import com.google.gwt.user.client.ui.InlineHyperlink;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.Widget;
 
+import emoji.gwt.emoji.Emoji;
+import emoji.gwt.emoji.res.Noto;
+
 /**
  * @author William Shakour (billy1380)
  *
@@ -66,6 +69,8 @@ public class MarkdownDemoPage extends Composite implements PluginContentReadyEve
 
 	public MarkdownDemoPage() {
 		initWidget(uiBinder.createAndBindUi(this));
+		
+		Emoji.get(Noto.INSTANCE);
 
 		markdown.setText("# Ponat mortalia prior suo cum Lami adit\n" + "\n" + "## :thumbsup: Quod quas relictis tenuit\n" + "\n"
 				+ "Lorem markdownum mutato Achivos **pectora tenebris**, inde nisi divesque,\n"
