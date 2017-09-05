@@ -127,7 +127,7 @@ interface MarkdownSnippets extends ClientBundle {
 
 		<ui:safehtml from="{INSTANCE.generated}" />
 		<p>
-			Emoji are not supported yet :(
+			If you can see the emoji below, it is because your browser/device supports them :).
 		</p>
 		<ui:safehtml from="{INSTANCE.emoji}" />
 	</g:HTMLPanel>
